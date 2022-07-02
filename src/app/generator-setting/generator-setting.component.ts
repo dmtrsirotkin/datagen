@@ -1,7 +1,6 @@
 import {Component, Input, Output, OnInit, EventEmitter} from '@angular/core';
 import {GenerationPrefab} from "../app.component";
 
-
 @Component({
   selector: 'app-generator-setting',
   templateUrl: './generator-setting.component.html',
@@ -21,7 +20,9 @@ export class GeneratorSettingComponent implements OnInit {
   }
 
   OnDelete(id : number){
-    this.onDelete.emit(id)
+    // this.onDelete.emit(id)
+    alert('Точно удалить??')
+   this.onDelete.emit(id)
   }
 
   OnEdit(id : number){
@@ -37,6 +38,11 @@ export class GeneratorSettingComponent implements OnInit {
   }
 
   OnAdd(){
-    this.onAdd.emit();
+    // this.onAdd.emit();
+    // this.generations.push({id: id-1,name : "name",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"})
+    alert('dsadasd')
+  }
+  onCum(id: number){
+    alert(this.generations.push())
   }
 }

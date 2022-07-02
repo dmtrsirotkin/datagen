@@ -20,7 +20,8 @@ export class AppComponent {
 
   public generations: GenerationPrefab[] = [
     {id: 1,name : "name",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"},
-    {id: 2,name : "name",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"}
+    {id: 2,name : "name",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"},
+    {id: 3,name : "name",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"}
   ]
 
   AddGeneration(){
@@ -30,6 +31,7 @@ export class AppComponent {
 
   DeleteGeneration(id: number){
     console.log("нажали делит " + id)
+    this.generations = this.generations.filter(t => t.id !== id)
   }
 
   EditGeneration(id: number){

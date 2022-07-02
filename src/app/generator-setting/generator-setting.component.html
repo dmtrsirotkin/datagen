@@ -1,21 +1,29 @@
+<div>
 <h1>Generator Settings</h1>
 
 <ul>
   <li *ngFor = "let generation of generations; let i = index">
-    <strong>{{i + 1}}</strong>
-    {{generation.name}}
-    {{generation.type}}
-    {{generation.pattern}}
-    {{generation.genType}}
-    {{generation.probability}}
-    {{generation.step}}
-    <button class = "edit"><img src="assets\edit.png" (click)="OnEdit(generation.id)"></button>
-    <button class = "changePosition"><img src="assets\up.png" (click)="OnChangePositionUp(generation.id)"></button>
-    <button class = "changePosition"><img src="assets\down.png" (click)="OnChangePositionDown(generation.id)"></button>
-    <button class = "delete"><img src="assets\delete.png" (click)="OnDelete(generation.id)"></button>
-
+    <div>
+      <strong>{{i + 1}}</strong>
+      {{generation.name}}
+      {{generation.type}}
+      {{generation.pattern}}
+      {{generation.genType}}
+      {{generation.probability}}
+      {{generation.step}}
+      <button class = "edit"><img src="assets\edit.png" (click)="OnEdit(generation.id)"></button>
+      <button class = "changePosition"><img src="assets\up.png" (click)="OnChangePositionUp(generation.id)"></button>
+      <button class = "changePosition"><img src="assets\down.png" (click)="OnChangePositionDown(generation.id)"></button>
+      <button class = "delete"><img src="assets\delete.png" (click)="OnDelete(generation.id)"></button>
+      <button (click)="onCum(generation.id)">Proverit' nomer</button>
+    </div>
 
   </li>
-  <button class = "add"><img src="assets\add.png" (click)="OnAdd()"></button>
-</ul>
 
+</ul>
+  <ul>
+    <li>
+      <button class = "add"><img src="assets\add.png" (click)="OnAdd()"></button>
+    </li>
+  </ul>
+</div>
