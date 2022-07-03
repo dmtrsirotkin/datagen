@@ -1,5 +1,7 @@
 import {Component, Input, Output, OnInit, EventEmitter} from '@angular/core';
 import {GenerationPrefab} from "../app.component";
+import {PopupGenComponent} from "../popup-gen/popup-gen.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-generator-setting',
@@ -14,7 +16,7 @@ export class GeneratorSettingComponent implements OnInit {
   @Output() onChangePositionDown = new EventEmitter<number>()
   @Output() onChangePositionUp = new EventEmitter<number>()
   @Output() onAdd = new EventEmitter()
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -22,7 +24,7 @@ export class GeneratorSettingComponent implements OnInit {
   OnDelete(id : number){
     // this.onDelete.emit(id)
     alert('Точно удалить??')
-   this.onDelete.emit(id)
+    this.onDelete.emit(id)
   }
 
   OnEdit(id : number){
@@ -37,12 +39,15 @@ export class GeneratorSettingComponent implements OnInit {
     this.onChangePositionUp.emit(id)
   }
 
-  OnAdd(){
+  OnAdd(id: number){
     // this.onAdd.emit();
-    // this.generations.push({id: id-1,name : "name",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"})
+    this.generations.push({id: id-1,name : "name",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"})
     alert('dsadasd')
   }
   onCum(id: number){
     alert(this.generations.push())
+  }
+  OnpopUp(){
+    this.dialog.open(PopupGenComponent)
   }
 }

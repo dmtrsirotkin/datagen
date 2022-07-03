@@ -21,7 +21,10 @@ export class AppComponent {
   public generations: GenerationPrefab[] = [
     {id: 1,name : "name",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"},
     {id: 2,name : "name",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"},
-    {id: 3,name : "name",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"}
+    {id: 3,name : "name",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"},
+    {id: 4,name : "name",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"},
+    {id: 5,name : "name",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"},
+    {id: 6,name : "name",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"}
   ]
 
   AddGeneration(){
