@@ -45,6 +45,6 @@ export class GeneratorSettingComponent implements OnInit {
   }
 
   OpenAddDialog(){
-    //this.dialog.open(PopupGenComponent)
+    this.dialog.open(PopupGenComponent)
   }
 }
