@@ -1,0 +1,73 @@
+<table mat-table [dataSource]="dataSource" class = demo-table>
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef>No.</th>
+    <td mat-cell *matCellDef="let element">{{element.position}}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element">{{element.name}}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef>Type</th>
+    <td mat-cell *matCellDef="let element">{{element.type}}</td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="pattern">
+    <th mat-header-cell *matHeaderCellDef>Pattern</th>
+    <td mat-cell *matCellDef="let element">{{element.pattern}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="gentype">
+    <th mat-header-cell *matHeaderCellDef>GenType</th>
+    <td mat-cell *matCellDef="let element">{{element.gentype}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="probability">
+    <th mat-header-cell *matHeaderCellDef>Probability</th>
+    <td mat-cell *matCellDef="let element">{{element.probability}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="step">
+    <th mat-header-cell *matHeaderCellDef>Step</th>
+    <td mat-cell *matCellDef="let element">{{element.step}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="slider">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button (click) = "UpData()">
+        UP
+      </button>
+      <button mat-raised-button (click) = "DownData()">
+        Down
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="edit">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button (click) = "EditData()">
+        Edit
+      </button>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="delete">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button (click) = "DeleteData()">
+        Delete
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
