@@ -1,1 +1,42 @@
-<p>popup-gen works!</p>
+<h1>Добавление генерации</h1>
+<h2 mat-dialog-title>Параметры</h2>
+<mat-dialog-content>Name
+  <input type = text>
+</mat-dialog-content>
+
+<mat-dialog-content>Type
+  <select name="type" class="select form-control custom-select" id="id_type">
+    <option value="string">Строка</option>
+    <option value="int">Целое число</option>
+    <option value="bool">Логический</option>
+    <option value="float">Число с плавающей точкой</option>
+    <option value="date" selected="">Дата</option>
+    <option value="time">Время</option>
+    <option value="date_time">Дата-время</option>
+  </select>
+</mat-dialog-content>
+
+<mat-dialog-content>Pattern
+  <input type = text>
+</mat-dialog-content>
+
+<mat-dialog-content>Gen type
+  <input type = text>
+</mat-dialog-content>
+
+<mat-dialog-content>Probability
+  <input type = text>
+</mat-dialog-content>
+
+<mat-dialog-content>Step
+  <input type = text>
+</mat-dialog-content>
+
+
+
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>No</button>
+  <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
+  <button mat-button (click)="OnAdd()" [mat-dialog-close]="true">Yes</button>
+</mat-dialog-actions>
+

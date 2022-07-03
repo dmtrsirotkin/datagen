@@ -19,17 +19,18 @@ export class AppComponent {
   appTitle = "Datagen"
 
   public generations: GenerationPrefab[] = [
-    {id: 1,name : "name",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"},
-    {id: 2,name : "name",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"},
-    {id: 3,name : "name",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"},
-    {id: 4,name : "name",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"},
-    {id: 5,name : "name",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"},
-    {id: 6,name : "name",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"}
+    {id: 1,name : "name1",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"},
+    {id: 2,name : "name2",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"},
+    {id: 3,name : "name3",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"},
+    {id: 4,name : "name4",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"},
+    {id: 5,name : "name5",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"},
+    {id: 6,name : "name6",type: "type",pattern: "pattern",genType: "genType",probability: "probability",step: "step"}
   ]
 
-  AddGeneration(){
-    //this.generations.push()
-    console.log("нажали плюсик ")
+  AddGeneration(generation: GenerationPrefab){
+
+    console.log("генерация добавлена")
+    this.generations.push(generation);
   }
 
   DeleteGeneration(id: number){

@@ -8,6 +8,12 @@
     (onEdit)="EditGeneration($event)"
     (onChangePositionDown)="ChangeGenerationPositionDown($event)"
     (onChangePositionUp)="ChangeGenerationPositionUp($event)"
-    (onAdd)="AddGeneration()"
-  ></app-generator-setting>
+    ></app-generator-setting>
 </div>
+<app-popup-gen (onAdd) = "AddGeneration($event)">
+
+</app-popup-gen>
+
+
+
+
