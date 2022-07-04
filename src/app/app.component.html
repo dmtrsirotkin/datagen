@@ -2,17 +2,11 @@
   <h1> {{appTitle}}</h1>
 </div>
 <div class="container">
-  <app-generator-setting
-    [generations]="generations"
-    (onDelete)="DeleteGeneration($event)"
-    (onEdit)="EditGeneration($event)"
-    (onChangePositionDown)="ChangeGenerationPositionDown($event)"
-    (onChangePositionUp)="ChangeGenerationPositionUp($event)"
-    ></app-generator-setting>
-</div>
-<app-popup-gen (onAdd) = "AddGeneration($event)">
+  <app-tab>
 
-</app-popup-gen>
+  </app-tab>
+</div>
+
 
 
 

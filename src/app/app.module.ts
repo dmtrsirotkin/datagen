@@ -13,12 +13,15 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatButtonModule} from "@angular/material/button";
 import {ReactiveFormsModule} from "@angular/forms";
+import {TabComponent} from "./tab/tab.component";
+import {MatTableModule} from "@angular/material/table";
 @NgModule({
-  declarations: [
-    AppComponent,
-    GeneratorSettingComponent,
-    PopupGenComponent
-  ],
+    declarations: [
+        AppComponent,
+        GeneratorSettingComponent,
+        PopupGenComponent,
+        TabComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,7 +32,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     MatSelectModule,
     MatChipsModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
