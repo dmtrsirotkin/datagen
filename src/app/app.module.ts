@@ -3,8 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GeneratorSettingComponent } from './generator-setting/generator-setting.component';
-import { PopupGenComponent } from './popup-gen/popup-gen.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from "@angular/material/dialog";
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -15,12 +13,14 @@ import {MatButtonModule} from "@angular/material/button";
 import {ReactiveFormsModule} from "@angular/forms";
 import {TabComponent} from "./tab/tab.component";
 import {MatTableModule} from "@angular/material/table";
+import { PopUpAddComponent } from './pop-up-add/pop-up-add.component';
+import { PopUpEditComponent } from './pop-up-edit/pop-up-edit.component';
 @NgModule({
     declarations: [
         AppComponent,
-        GeneratorSettingComponent,
-        PopupGenComponent,
-        TabComponent
+        TabComponent,
+        PopUpAddComponent,
+        PopUpEditComponent
     ],
   imports: [
     BrowserModule,
