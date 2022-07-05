@@ -63,6 +63,10 @@ export class TabComponent implements OnInit {
     this.table.renderRows()
   }
 
+  AddData(){
+
+  }
+
   DeleteData(element:PropertyGeneration){
     let index:number = element.id -1
     ELEMENT_DATA.splice(index, 1)
