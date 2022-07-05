@@ -1,0 +1,52 @@
+<div>
+  <form [formGroup]="Submit">
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input formControlName="name"matInput>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Type</mat-label>
+        <mat-select formControlName="type">
+          <mat-option value="number">Number</mat-option>
+          <mat-option value="Double">Double</mat-option>
+          <mat-option value="bool">Bool</mat-option>
+          <mat-option value="string">String</mat-option>
+          <mat-option value="date">Date</mat-option>
+          <mat-option value="date_time">Date-time</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Pattern</mat-label>
+        <input formControlName="pattern" matInput>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>	GenType</mat-label>
+        <input formControlName="genType" matInput>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Probability</mat-label>
+        <input formControlName="probability" matInput>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Step</mat-label>
+        <input formControlName="step" matInput>
+      </mat-form-field>
+    </div>
+
+  <div>
+    <button mat-raised-button color="primary" mat-dialog-close (click)="onSave()">Сохранить</button>
+    <button mat-raised-button color="warn" style="margin-left: 8px" mat-dialog-close>Закрыть</button>
+  </div>
+  </form>
+</div>
