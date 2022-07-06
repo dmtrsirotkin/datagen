@@ -18,7 +18,7 @@ export class TabComponent implements OnInit {
   constructor(public dataService: DataService,private dialogAdd: MatDialog) { }
 
   displayedColumns: string[] = ['name', 'type', 'pattern', 'gentype',
-    'probability', 'step', 'slider', 'edit', 'delete'];
+    'speed', 'slider', 'edit', 'delete'];
 
 
   @ViewChild(MatTable) table!: MatTable<PropertyGeneration>;
