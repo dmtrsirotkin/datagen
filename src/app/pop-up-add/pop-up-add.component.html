@@ -28,20 +28,173 @@
     <div>
       <mat-form-field appearance="fill">
         <mat-label>	GenType</mat-label>
-        <input formControlName="genType" matInput>
+        <mat-select formControlName="genType">
+          <mat-option value="IterGenNum">IterGenNum</mat-option>
+          <mat-option value="RandGenNum">RandGenNum</mat-option>
+          <mat-option value="PRandGenNum">PRandGenNum</mat-option>
+          <mat-option value="IterGenBool">IterGenBool</mat-option>
+          <mat-option value="PRandGenBool">PRandGenBool</mat-option>
+          <mat-option value="IterGenString">IterGenString</mat-option>
+          <mat-option value="RandGenString">RandGenString</mat-option>
+          <mat-option value="PRandGenString">PRandGenString</mat-option>
+        </mat-select>
       </mat-form-field>
     </div>
     <div>
       <mat-form-field appearance="fill">
-        <mat-label>Probability</mat-label>
-        <input formControlName="probability" matInput>
+        <mat-label>Speed</mat-label>
+        <input formControlName="speed" matInput>
       </mat-form-field>
     </div>
-    <div>
-      <mat-form-field appearance="fill">
-        <mat-label>Step</mat-label>
-        <input formControlName="step" matInput>
-      </mat-form-field>
+
+    <div *ngIf="this.Submit.value.genType == 'IterGenNum'">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>RangeFrom</mat-label>
+          <input formControlName="rangeFrom" matInput>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>RangeTo</mat-label>
+          <input formControlName="rangeTo" matInput>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Step</mat-label>
+          <input formControlName="step" matInput>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>InitialValue</mat-label>
+          <input formControlName="initialValue" matInput>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div *ngIf="this.Submit.value.genType == 'RandGenNum'">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>RangeFrom</mat-label>
+          <input formControlName="rangeFrom" matInput>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>RangeTo</mat-label>
+          <input formControlName="rangeTo" matInput>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div *ngIf="this.Submit.value.genType == 'PRandGenNum'">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>MU</mat-label>
+          <input formControlName="mu" matInput>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Sig</mat-label>
+          <input formControlName="sig" matInput>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div *ngIf="this.Submit.value.genType == 'IterGenBool'">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>InitialValue</mat-label>
+          <input formControlName="initialValue" matInput>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div *ngIf="this.Submit.value.genType == 'PRandGenBool'">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>ProbabilityFrom</mat-label>
+          <input formControlName="probabilityFrom" matInput>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>ProbabilityTo</mat-label>
+          <input formControlName="probabilityTo" matInput>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div *ngIf="this.Submit.value.genType == 'IterGenString'">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>RangeFrom</mat-label>
+          <input formControlName="rangeFrom" matInput>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>RangeTo</mat-label>
+          <input formControlName="rangeTo" matInput>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Step</mat-label>
+          <input formControlName="step" matInput>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>InitialValue</mat-label>
+          <input formControlName="initialValue" matInput>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div *ngIf="this.Submit.value.genType == 'RandGenString'">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>RangeFrom</mat-label>
+          <input formControlName="rangeFrom" matInput>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>RangeTo</mat-label>
+          <input formControlName="rangeTo" matInput>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div *ngIf="this.Submit.value.genType == 'PRandGenString'">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>RangeFrom</mat-label>
+          <input formControlName="rangeFrom" matInput>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>RangeTo</mat-label>
+          <input formControlName="rangeTo" matInput>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>ProbabilityFrom</mat-label>
+          <input formControlName="probabilityFrom" matInput>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>ProbabilityTo</mat-label>
+          <input formControlName="probabilityTo" matInput>
+        </mat-form-field>
+      </div>
     </div>
 
   <div>

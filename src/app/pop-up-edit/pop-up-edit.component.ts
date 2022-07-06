@@ -17,12 +17,19 @@ export class PopUpEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.Submit = this.builder.group({
-      name: [this.data.name, Validators.required],
-      type: [this.data.type, Validators.required],
-      pattern: [this.data.pattern, Validators.required],
-      genType: [this.data.gentype, Validators.required],
-      probability: [this.data.probability, Validators.required],
-      step: [this.data.step, Validators.required]
+      name: ['', Validators.required],
+      type: ['', Validators.required],
+      pattern: ['', Validators.required],
+      genType: ['', Validators.required],
+      speed: ['', Validators.required],
+      rangeFrom: ['', Validators.required],
+      rangeTo: ['', Validators.required],
+      step: ['', Validators.required],
+      initialValue: ['', Validators.required],
+      mu: ['', Validators.required],
+      sig: ['', Validators.required],
+      probabilityFrom: ['', Validators.required],
+      probabilityTo: ['', Validators.required],
     })
   }
 
@@ -31,7 +38,6 @@ export class PopUpEditComponent implements OnInit {
     this.data.type = this.Submit.value.type
     this.data.pattern = this.Submit.value.pattern
     this.data.gentype = this.Submit.value.genType
-    this.data.probability = this.Submit.value.probability
-    this.data.step =  this.Submit.value.step
+
   }
 }

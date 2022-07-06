@@ -54,10 +54,6 @@ export interface PRandGenString extends PropertyGeneration{
 
   public ELEMENT_DATA: PropertyGeneration[] = []
 
-
-
-
-
   UpData(element:PropertyGeneration){
     let elem :PropertyGeneration
     let index :number = element.id -1
@@ -89,6 +85,7 @@ export interface PRandGenString extends PropertyGeneration{
 
   AddData(element:PropertyGeneration){
     this.ELEMENT_DATA.push(element)
+    console.log(element)
   }
 
   DeleteData(element:PropertyGeneration){
