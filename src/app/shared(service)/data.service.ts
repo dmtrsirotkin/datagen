@@ -5,25 +5,58 @@ export interface PropertyGeneration {
   type: string;
   pattern: string;
   gentype: string;
-  probability: number[];
-  step: number;
+  speed: number;
   id: number;
 }
 
+export interface IterGenNum extends PropertyGeneration{
+  range: number[];
+  step: number;
+  initialValue: number;
+}
+
+export interface RandGenNum extends PropertyGeneration{
+  range: number[];
+}
+
+export interface PRandGenNum extends PropertyGeneration{
+  mu:number;
+  sig:number;
+}
+
+export interface IterGenBool extends PropertyGeneration{
+  initialValue: boolean;
+}
+
+export interface PRandGenBool extends PropertyGeneration{
+  probability: number[];
+}
+
+export interface IterGenString extends PropertyGeneration{
+  range: string[];
+  step: number;
+  initialValue: boolean;
+}
+
+
+export interface RandGenString extends PropertyGeneration{
+  range: string[];
+}
+
+
+export interface PRandGenString extends PropertyGeneration{
+  range: string[];
+  probability: number[];
+}
 
 @Injectable({providedIn: 'root'})
   export class DataService{
 
-  public ELEMENT_DATA: PropertyGeneration[] = [
-    {name: 'property1', type:'string' , pattern:'123{{ads}}', id: 1,
-      gentype:'Gen1' , probability:[50, 50] , step: 10},
-    {name: 'property2', type:'number' , pattern:'{{25.2}}', id: 2,
-      gentype:'Gen1' , probability:[10, 90] , step: 5},
-    {name: 'property3', type:'string' , pattern:'dasd{{ads}}', id: 3,
-      gentype:'Gen1' , probability:[60, 40] , step: 10},
-    {name: 'property4', type:'number' , pattern:'{{2.2}}', id: 4,
-      gentype:'Gen1' , probability:[10, 90] , step: 5}
-  ];
+  public ELEMENT_DATA: PropertyGeneration[] = []
+
+
+
+
 
   UpData(element:PropertyGeneration){
     let elem :PropertyGeneration
@@ -36,6 +69,7 @@ export interface PropertyGeneration {
       this.ELEMENT_DATA[index-1].id -=1
       this.ELEMENT_DATA[index].id +=1
       console.log(index)
+      console.log(this.ELEMENT_DATA)
     }
   }
 
