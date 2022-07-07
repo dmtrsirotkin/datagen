@@ -33,7 +33,7 @@ export class TabComponent implements OnInit {
     this.table.renderRows()
   }
 
-  EditData(element:PropertyGeneration){
+  EditData(element:any){
     this.dialogAdd.open(PopUpEditComponent,{data:element}).afterClosed().subscribe(result => {this.table.renderRows()});
   }
 

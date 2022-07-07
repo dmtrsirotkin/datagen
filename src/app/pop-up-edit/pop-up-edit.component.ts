@@ -20,35 +20,37 @@ import {Parser} from "@angular/compiler";
 export class PopUpEditComponent implements OnInit {
 
   Submit!: FormGroup;
-  constructor(@Inject(MAT_DIALOG_DATA) public data: PropertyGeneration, private builder: FormBuilder,private dataService: DataService) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private builder: FormBuilder,private dataService: DataService) {
   }
 
   ngOnInit(): void {
+    console.log(this.data)
     this.Submit = this.builder.group({
       name: [this.data.name, Validators.required],
       type: [this.data.type, Validators.required],
       pattern: [this.data.pattern, Validators.required],
-      genType: [this.data.gentype, Validators.required],
-      speed: ['', Validators.required],
-      rangeFrom: ['', Validators.required],
-      rangeTo: ['', Validators.required],
-      step: ['', Validators.required],
-      initialValue: ['', Validators.required],
-      mu: ['', Validators.required],
-      sig: ['', Validators.required],
+      genType: [this.data.genType, Validators.required],
+      speed: [this.data.speed, Validators.required],
+      rangeFrom: [this.data.range[0], Validators.required],
+      rangeTo: [this.data.range[1], Validators.required],
+      step: [this.data.step, Validators.required],
+      initialValue: [this.data.initialValue, Validators.required],
+      mu: [this.data.mu, Validators.required],
+      sig: [this.data.sig, Validators.required],
       probabilityFrom: ['', Validators.required],
       probabilityTo: ['', Validators.required],
     })
   }
 
   onEdit(){
+    console.log(this.Submit.value)
     switch (this.Submit.value.genType) {
       case 'IterGenNum':
         let elem1 : IterGenNum = {
           name: this.Submit.value.name,
           type:this.Submit.value.type,
           pattern:this.Submit.value.pattern,
-          gentype:this.Submit.value.genType,
+          genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
           id: this.dataService.ELEMENT_DATA.length+1,
           range: [this.Submit.value.rangeFrom, this.Submit.value.rangeTo],
@@ -62,7 +64,7 @@ export class PopUpEditComponent implements OnInit {
           name: this.Submit.value.name,
           type:this.Submit.value.type,
           pattern:this.Submit.value.pattern,
-          gentype:this.Submit.value.genType,
+          genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
           id: this.dataService.ELEMENT_DATA.length+1,
           range: [this.Submit.value.rangeFrom, this.Submit.value.rangeTo]
@@ -74,7 +76,7 @@ export class PopUpEditComponent implements OnInit {
           name: this.Submit.value.name,
           type:this.Submit.value.type,
           pattern:this.Submit.value.pattern,
-          gentype:this.Submit.value.genType,
+          genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
           id: this.dataService.ELEMENT_DATA.length+1,
           mu:this.Submit.value.mu,
@@ -87,7 +89,7 @@ export class PopUpEditComponent implements OnInit {
           name: this.Submit.value.name,
           type:this.Submit.value.type,
           pattern:this.Submit.value.pattern,
-          gentype:this.Submit.value.genType,
+          genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
           id: this.dataService.ELEMENT_DATA.length+1,
           initialValue: this.Submit.value.initialValue
@@ -99,7 +101,7 @@ export class PopUpEditComponent implements OnInit {
           name: this.Submit.value.name,
           type:this.Submit.value.type,
           pattern:this.Submit.value.pattern,
-          gentype:this.Submit.value.genType,
+          genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
           id: this.dataService.ELEMENT_DATA.length+1,
           probability: [this.Submit.value.probabilityFrom,this.Submit.value.probabilityTo]
@@ -111,7 +113,7 @@ export class PopUpEditComponent implements OnInit {
           name: this.Submit.value.name,
           type:this.Submit.value.type,
           pattern:this.Submit.value.pattern,
-          gentype:this.Submit.value.genType,
+          genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
           id: this.dataService.ELEMENT_DATA.length+1,
           range: [this.Submit.value.rangeFrom, this.Submit.value.rangeTo],
@@ -125,7 +127,7 @@ export class PopUpEditComponent implements OnInit {
           name: this.Submit.value.name,
           type:this.Submit.value.type,
           pattern:this.Submit.value.pattern,
-          gentype:this.Submit.value.genType,
+          genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
           id: this.dataService.ELEMENT_DATA.length+1,
           range: [this.Submit.value.rangeFrom, this.Submit.value.rangeTo]
@@ -137,7 +139,7 @@ export class PopUpEditComponent implements OnInit {
           name: this.Submit.value.name,
           type:this.Submit.value.type,
           pattern:this.Submit.value.pattern,
-          gentype:this.Submit.value.genType,
+          genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
           id: this.dataService.ELEMENT_DATA.length+1,
           range: [this.Submit.value.rangeFrom, this.Submit.value.rangeTo],

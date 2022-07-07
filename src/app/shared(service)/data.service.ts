@@ -4,7 +4,7 @@ export interface PropertyGeneration {
   name: string;
   type: string;
   pattern: string;
-  gentype: string;
+  genType: string;
   speed: number;
   id: number;
 }
@@ -52,7 +52,7 @@ export interface PRandGenString extends PropertyGeneration{
 @Injectable({providedIn: 'root'})
   export class DataService{
 
-  public ELEMENT_DATA: PropertyGeneration[] = []
+  public ELEMENT_DATA: any[] = []
 
   UpData(element:PropertyGeneration){
     let elem :PropertyGeneration
