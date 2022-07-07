@@ -31,14 +31,13 @@ export class PopUpEditComponent implements OnInit {
       pattern: [this.data.pattern, Validators.required],
       genType: [this.data.genType, Validators.required],
       speed: [this.data.speed, Validators.required],
-      rangeFrom: [this.data.range[0], Validators.required],
-      rangeTo: [this.data.range[1], Validators.required],
+      rangeFrom: [(this.data.range ==null) ? '':this.data.range[0], Validators.required],
+      rangeTo: [(this.data.range ==null) ? '':this.data.range[1], Validators.required],
       step: [this.data.step, Validators.required],
       initialValue: [this.data.initialValue, Validators.required],
       mu: [this.data.mu, Validators.required],
       sig: [this.data.sig, Validators.required],
-      probabilityFrom: ['', Validators.required],
-      probabilityTo: ['', Validators.required],
+      probability: [this.data.probability, Validators.required],
     })
   }
 
@@ -52,12 +51,12 @@ export class PopUpEditComponent implements OnInit {
           pattern:this.Submit.value.pattern,
           genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
-          id: this.dataService.ELEMENT_DATA.length+1,
+          id: this.data.id,
           range: [this.Submit.value.rangeFrom, this.Submit.value.rangeTo],
           step: this.Submit.value.step,
           initialValue: this.Submit.value.initialValue
         }
-        this.data = elem1;
+        this.dataService.ELEMENT_DATA[elem1.id-1] = elem1;
         break
       case 'RandGenNum':
         let elem2 : RandGenNum = {
@@ -66,10 +65,10 @@ export class PopUpEditComponent implements OnInit {
           pattern:this.Submit.value.pattern,
           genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
-          id: this.dataService.ELEMENT_DATA.length+1,
+          id: this.data.id,
           range: [this.Submit.value.rangeFrom, this.Submit.value.rangeTo]
         }
-        this.data = elem2;
+        this.dataService.ELEMENT_DATA[elem2.id-1] = elem2;
         break
       case 'PRandGenNum':
         let elem3 : PRandGenNum = {
@@ -78,11 +77,11 @@ export class PopUpEditComponent implements OnInit {
           pattern:this.Submit.value.pattern,
           genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
-          id: this.dataService.ELEMENT_DATA.length+1,
+          id: this.data.id,
           mu:this.Submit.value.mu,
           sig:this.Submit.value.sig
         }
-        this.data = elem3;
+        this.dataService.ELEMENT_DATA[elem3.id-1] = elem3;
         break
       case 'IterGenBool':
         let elem4 : IterGenBool = {
@@ -91,10 +90,10 @@ export class PopUpEditComponent implements OnInit {
           pattern:this.Submit.value.pattern,
           genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
-          id: this.dataService.ELEMENT_DATA.length+1,
+          id: this.data.id,
           initialValue: this.Submit.value.initialValue
         }
-        this.data = elem4;
+        this.dataService.ELEMENT_DATA[elem4.id-1] = elem4;
         break
       case 'PRandGenBool':
         let elem5 : PRandGenBool = {
@@ -103,10 +102,10 @@ export class PopUpEditComponent implements OnInit {
           pattern:this.Submit.value.pattern,
           genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
-          id: this.dataService.ELEMENT_DATA.length+1,
-          probability: [this.Submit.value.probabilityFrom,this.Submit.value.probabilityTo]
+          id: this.data.id,
+          probability: this.Submit.value.probability
         }
-        this.data = elem5;
+        this.dataService.ELEMENT_DATA[elem5.id-1] = elem5;
         break
       case 'IterGenString':
         let elem6 : IterGenString = {
@@ -115,12 +114,12 @@ export class PopUpEditComponent implements OnInit {
           pattern:this.Submit.value.pattern,
           genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
-          id: this.dataService.ELEMENT_DATA.length+1,
+          id: this.data.id,
           range: [this.Submit.value.rangeFrom, this.Submit.value.rangeTo],
           step: this.Submit.value.step,
           initialValue: this.Submit.value.initialValue
         }
-        this.data = elem6;
+        this.dataService.ELEMENT_DATA[elem6.id-1] = elem6;
         break
       case 'RandGenString':
         let elem7 : RandGenString = {
@@ -129,10 +128,10 @@ export class PopUpEditComponent implements OnInit {
           pattern:this.Submit.value.pattern,
           genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
-          id: this.dataService.ELEMENT_DATA.length+1,
+          id: this.data.id,
           range: [this.Submit.value.rangeFrom, this.Submit.value.rangeTo]
         }
-        this.data = elem7;
+        this.dataService.ELEMENT_DATA[elem7.id-1] = elem7;
         break
       case 'PRandGenString':
         let elem8 : PRandGenString = {
@@ -141,11 +140,11 @@ export class PopUpEditComponent implements OnInit {
           pattern:this.Submit.value.pattern,
           genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
-          id: this.dataService.ELEMENT_DATA.length+1,
+          id: this.data.id,
           range: [this.Submit.value.rangeFrom, this.Submit.value.rangeTo],
-          probability: [this.Submit.value.probabilityFrom,this.Submit.value.probabilityTo]
+          probability: this.Submit.value.probability
         }
-        this.data = elem8;
+        this.dataService.ELEMENT_DATA[elem8.id-1] = elem8;
         break
     }
   }

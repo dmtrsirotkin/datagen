@@ -28,8 +28,7 @@ export class PopUpAddComponent implements OnInit {
       initialValue: ['', Validators.required],
       mu: ['', Validators.required],
       sig: ['', Validators.required],
-      probabilityFrom: ['', Validators.required],
-      probabilityTo: ['', Validators.required],
+      probability: ['', Validators.required],
     })
   }
 
@@ -95,7 +94,7 @@ export class PopUpAddComponent implements OnInit {
           genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
           id: this.dataService.ELEMENT_DATA.length+1,
-          probability: [this.Submit.value.probabilityFrom,this.Submit.value.probabilityTo]
+          probability: this.Submit.value.probability
         }
         this.dataService.AddData(elem5)
         break
@@ -134,7 +133,7 @@ export class PopUpAddComponent implements OnInit {
           speed:this.Submit.value.speed,
           id: this.dataService.ELEMENT_DATA.length+1,
           range: [this.Submit.value.rangeFrom, this.Submit.value.rangeTo],
-          probability: [this.Submit.value.probabilityFrom,this.Submit.value.probabilityTo]
+          probability: this.Submit.value.probability
         }
         this.dataService.AddData(elem8)
         break

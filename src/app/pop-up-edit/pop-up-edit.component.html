@@ -11,7 +11,7 @@
         <mat-label>Type</mat-label>
         <mat-select formControlName="type">
           <mat-option value="number">number</mat-option>
-          <mat-option value="float">double</mat-option>
+          <mat-option value="double">double</mat-option>
           <mat-option value="bool">bool</mat-option>
           <mat-option value="string">string</mat-option>
           <mat-option value="date">date</mat-option>
@@ -115,14 +115,8 @@
     <div *ngIf="this.Submit.value.genType == 'PRandGenBool'">
       <div>
         <mat-form-field appearance="fill">
-          <mat-label>ProbabilityFrom</mat-label>
-          <input formControlName="probabilityFrom" matInput>
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field appearance="fill">
-          <mat-label>ProbabilityTo</mat-label>
-          <input formControlName="probabilityTo" matInput>
+          <mat-label>Probability</mat-label>
+          <input formControlName="probability" matInput>
         </mat-form-field>
       </div>
     </div>
@@ -184,14 +178,8 @@
       </div>
       <div>
         <mat-form-field appearance="fill">
-          <mat-label>ProbabilityFrom</mat-label>
-          <input formControlName="probabilityFrom" matInput>
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field appearance="fill">
-          <mat-label>ProbabilityTo</mat-label>
-          <input formControlName="probabilityTo" matInput>
+          <mat-label>Probability</mat-label>
+          <input formControlName="probability" matInput>
         </mat-form-field>
       </div>
     </div>
