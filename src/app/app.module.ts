@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { NgxFileHelpersModule } from "ngx-file-helpers";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -35,7 +36,8 @@ import { DataGenerationComponent } from './data-generation/data-generation.compo
     MatChipsModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatTableModule
+    MatTableModule,
+    NgxFileHelpersModule
   ],
   providers: [],
   bootstrap: [AppComponent]
