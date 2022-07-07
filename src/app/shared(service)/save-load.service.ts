@@ -8,7 +8,7 @@ export class SaveLoadService {
 
 
   load(data:any){
-    console.log(JSON.parse(data.content))
+    this.dataService.ELEMENT_DATA = JSON.parse(data.content)
   }
 
   save(){
