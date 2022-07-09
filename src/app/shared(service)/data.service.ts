@@ -54,6 +54,8 @@ export interface PRandGenString extends PropertyGeneration{
 
   public ELEMENT_DATA: any[] = []
 
+  public DataForExport: any[] = []
+
   UpData(element:PropertyGeneration){
     let elem :PropertyGeneration
     let index :number = element.id -1
