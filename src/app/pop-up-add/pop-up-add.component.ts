@@ -22,6 +22,7 @@ export class PopUpAddComponent implements OnInit {
       pattern: ['', Validators.required],
       genType: ['', Validators.required],
       speed: ['', Validators.required],
+      range: ['',Validators.required],
       rangeFrom: ['', Validators.required],
       rangeTo: ['', Validators.required],
       step: ['', Validators.required],
@@ -106,7 +107,7 @@ export class PopUpAddComponent implements OnInit {
           genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
           id: this.dataService.ELEMENT_DATA.length+1,
-          range: [this.Submit.value.rangeFrom, this.Submit.value.rangeTo],
+          range: this.Submit.value.range.toString().split(','),
           step: this.Submit.value.step,
           initialValue: this.Submit.value.initialValue
         }
@@ -120,7 +121,7 @@ export class PopUpAddComponent implements OnInit {
           genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
           id: this.dataService.ELEMENT_DATA.length+1,
-          range: [this.Submit.value.rangeFrom, this.Submit.value.rangeTo]
+          range: this.Submit.value.range.toString().split(',')
         }
         this.dataService.AddData(elem7)
         break
@@ -132,7 +133,7 @@ export class PopUpAddComponent implements OnInit {
           genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
           id: this.dataService.ELEMENT_DATA.length+1,
-          range: [this.Submit.value.rangeFrom, this.Submit.value.rangeTo],
+          range: this.Submit.value.range.toString().split(','),
           probability: this.Submit.value.probability
         }
         this.dataService.AddData(elem8)
