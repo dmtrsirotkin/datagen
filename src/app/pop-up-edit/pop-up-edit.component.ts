@@ -92,7 +92,7 @@ export class PopUpEditComponent implements OnInit {
           genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
           id: this.data.id,
-          initialValue: this.Submit.value.initialValue
+          initialValue: this.Submit.value.initialValue == 'true' ? true: false
         }
         this.dataService.ELEMENT_DATA[elem4.id-1] = elem4;
         break

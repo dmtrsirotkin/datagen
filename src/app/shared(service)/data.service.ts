@@ -29,13 +29,13 @@ export interface IterGenBool extends PropertyGeneration{
 }
 
 export interface PRandGenBool extends PropertyGeneration{
-  probability: number[];
+  probability: number;
 }
 
 export interface IterGenString extends PropertyGeneration{
   range: string[];
   step: number;
-  initialValue: boolean;
+  initialValue: string;
 }
 
 

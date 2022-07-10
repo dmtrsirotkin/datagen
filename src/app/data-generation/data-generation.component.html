@@ -17,8 +17,10 @@
     <button class="button">
       To view page
     </button>
-    <input type="number" size="40">
-    <button class="button">
+    <form [formGroup]="Submit">
+    <input formControlName="num_gen" type="number" size="40" value="num_gen">
+    </form>
+    <button class="button" (click) = Generation()>
       Start generation
     </button>
   </div>

@@ -83,7 +83,7 @@ export class PopUpAddComponent implements OnInit {
           genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
           id: this.dataService.ELEMENT_DATA.length+1,
-          initialValue: this.Submit.value.initialValue
+          initialValue: this.Submit.value.initialValue == 'true' ? true: false
         }
         this.dataService.AddData(elem4)
         break
