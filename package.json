@@ -25,6 +25,7 @@
     "choices.js": "^10.1.0",
     "file-saver": "^2.0.5",
     "ngx-file-helpers": "^7.0.0",
+    "random-normal": "^1.0.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "typescript-require": "^0.3.0",

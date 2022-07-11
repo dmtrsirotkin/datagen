@@ -17,6 +17,7 @@ import {MatTableModule} from "@angular/material/table";
 import { PopUpAddComponent } from './pop-up-add/pop-up-add.component';
 import { PopUpEditComponent } from './pop-up-edit/pop-up-edit.component';
 import { DataGenerationComponent } from './data-generation/data-generation.component';
+
 @NgModule({
     declarations: [
         AppComponent,

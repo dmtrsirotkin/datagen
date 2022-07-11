@@ -8,6 +8,8 @@ import {
   PRandGenNum, PRandGenString,
   RandGenNum, RandGenString
 } from "./data.service";
+// @ts-ignore
+import { randomNormal } from 'random-normal'
 
 @Injectable({
   providedIn: 'root'
@@ -52,7 +54,7 @@ export class GeneratorService {
     console.log(this.dataService.DataForExport)
   }
 
-  IterGenNum(obj: IterGenNum, num_gen:number){ //работает
+  IterGenNum(obj: IterGenNum, num_gen:number){
     let initialValue = obj.initialValue*1
     let num_list = [initialValue]
     let min_num = (obj.range ==null) ? 0:obj.range[0]*1;
@@ -71,7 +73,7 @@ export class GeneratorService {
     }
     return num_list
   }
-  RandGenNum(obj: RandGenNum, num_gen:number) { //работает
+  RandGenNum(obj: RandGenNum, num_gen:number) {
     let num_list = [];
     let max_num = (obj.range ==null) ? 0:obj.range[0]*1;
     let min_num = (obj.range ==null) ? 0:obj.range[1]*1;
@@ -82,31 +84,30 @@ export class GeneratorService {
           num = Math.random() * (max_num - min_num) + min_num
         }
         else if (obj.type == "number"){
-          num = Math.floor(Math.random() * (max_num - min_num) + min_num)
+          num = Math.round(Math.random() * (max_num - min_num) + min_num)
         }
       }
       num_list.push(num)
     }
     return num_list
   }
-  PRandGenNum(obj: PRandGenNum, num_gen:number) { //хз как делать
+  PRandGenNum(obj: PRandGenNum, num_gen:number) {
     let num_list = [];
     let num = 0
-    let nd = 0
-
+    let randomNormal = require('random-normal');
     for(let i = 1; i < num_gen; i++){
       if (i %  obj.speed*1 == 0){
-        console.log('this function in progress...')
+        num = randomNormal({mean: obj.mu*1, dev: obj.sig*1})
       }
       num_list.push(num)
     }
     return num_list
   }
-  IterGenBool(obj : IterGenBool, num_gen:number) { //работает
+  IterGenBool(obj : IterGenBool, num_gen:number) {
     let bool_list = []
     let initialValue = obj.initialValue;
     bool_list.push(initialValue)
-    for(let i = 1; i < num_gen; i++){
+    for(let i = 0; i < num_gen; i++){
       if (i %  obj.speed == 0) {
         initialValue = !initialValue
       }
@@ -115,7 +116,7 @@ export class GeneratorService {
     return bool_list
   }
 
-  PRandGenBool(obj : PRandGenBool, num_gen:number) { //работает
+  PRandGenBool(obj : PRandGenBool, num_gen:number) {
     let bool_list = [];
     let initialValue;
     for(let i = 0; i < num_gen; i++){
@@ -126,7 +127,7 @@ export class GeneratorService {
     }
     return bool_list
   }
-  IterGenString(obj : IterGenString, num_gen:number) { //работает
+  IterGenString(obj : IterGenString, num_gen:number) {
     let string_list = [obj.initialValue]
     let initialValue = obj.initialValue
     let index = obj.range.indexOf(initialValue)
@@ -144,25 +145,44 @@ export class GeneratorService {
     }
     return string_list
   }
-  RandGenString(obj:RandGenString, num_gen:number) { //хз как делать
+  RandGenString(obj:RandGenString, num_gen:number) {
     let string_list = []
-    //const Faker = require('faker');
+    let length = obj.range.length
+    let str = ''
     for(let i = 0; i < num_gen; i++){
       if(i % obj.speed == 0){
-        //string_list.push(Faker.choice(obj.range))
+        str = obj.range[Math.round(Math.random() * (length-1))]
       }
+      string_list.push(str);
     }
-    //return string_list
+    return string_list
   }
-  PRandGenString(obj: PRandGenString,num_gen: number) { //хз как делать
+  PRandGenString(obj: PRandGenString,num_gen: number) {
     let string_list = []
-    //const Faker = require('faker');
+    let str = ''
+    let index = 0;
+    let probabilitySum = 0;
+    for(let i = 0;i < obj.probability.length;i++){
+      probabilitySum += obj.probability[i]*1
+    }
     for(let i = 0; i < num_gen; i++){
       if(i % obj.speed == 0){
-        //string_list.push(Faker.choice(obj.range,obj.probability))
+        let randomNumber = Math.random() * (probabilitySum)
+        console.log('randomnumber = ' + randomNumber)
+        let sumProb = 0
+        for (let j = 0;j<obj.probability.length;j++){
+          if(randomNumber > sumProb && randomNumber < sumProb+obj.probability[j]*1){
+            index = j
+            break;
+          }
+          else{
+            sumProb += obj.probability[j]*1
+          }
+        }
       }
+      string_list.push(obj.range[index])
     }
-    //  return string_list
+    return string_list
   }
 }
 
