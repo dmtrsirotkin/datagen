@@ -17,17 +17,13 @@ import {MatTableModule} from "@angular/material/table";
 import { PopUpAddComponent } from './pop-up-add/pop-up-add.component';
 import { PopUpEditComponent } from './pop-up-edit/pop-up-edit.component';
 import { DataGenerationComponent } from './data-generation/data-generation.component';
-import { ViewPageComponent } from './view-page/view-page.component';
-import { ViewTabComponent } from './view-tab/view-tab.component';
 @NgModule({
     declarations: [
         AppComponent,
         TabComponent,
         PopUpAddComponent,
         PopUpEditComponent,
-        DataGenerationComponent,
-        ViewPageComponent,
-        ViewTabComponent
+        DataGenerationComponent
     ],
   imports: [
     BrowserModule,

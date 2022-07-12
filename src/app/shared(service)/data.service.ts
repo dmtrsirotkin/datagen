@@ -29,13 +29,13 @@ export interface IterGenBool extends PropertyGeneration{
 }
 
 export interface PRandGenBool extends PropertyGeneration{
-  probability: number[];
+  probability: number;
 }
 
 export interface IterGenString extends PropertyGeneration{
   range: string[];
   step: number;
-  initialValue: boolean;
+  initialValue: string;
 }
 
 
@@ -53,6 +53,8 @@ export interface PRandGenString extends PropertyGeneration{
   export class DataService{
   public data:any = {name:"our generated data"}
   public ELEMENT_DATA: any[] = []
+
+  public DataForExport: any[] = []
 
   UpData(element:PropertyGeneration){
     let elem :PropertyGeneration

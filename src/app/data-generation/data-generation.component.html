@@ -7,12 +7,15 @@
     </app-tab>
   </div>
   <div class="CenterContent">
-    <button class="button" (click) = "SaveLoadService.save(DataService.ELEMENT_DATA)">
+    <button class="button" (click) = "SaveLoadService.save()">
       Save
     </button>
     <button type="button" mat-button #filePicker="ngxFilePicker" ngxFilePicker [readMode]="readMode" [multiple]="false"
             (filePick)="SaveLoadService.load($event)">
       Load
+    </button>
+    <button class="button">
+      To view page
     </button>
     <input type="number" size="40">
     <button class="button">

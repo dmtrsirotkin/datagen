@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ReadMode } from "ngx-file-helpers";
 import {SaveLoadService} from "../shared(service)/save-load.service";
-import {DataService} from "../shared(service)/data.service";
-
 @Component({
   selector: 'app-data-generation',
   templateUrl: './data-generation.component.html',
@@ -11,7 +9,8 @@ import {DataService} from "../shared(service)/data.service";
 export class DataGenerationComponent implements OnInit {
   public readMode = ReadMode.text;
 
-  constructor(public SaveLoadService:SaveLoadService, public DataService:DataService) { }
+  constructor(public SaveLoadService:SaveLoadService) { }
+
   ngOnInit(): void {
   }
 
