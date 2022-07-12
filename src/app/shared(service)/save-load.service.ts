@@ -11,8 +11,8 @@ export class SaveLoadService {
     this.dataService.ELEMENT_DATA = JSON.parse(data.content)
   }
 
-  save(){
-    let data:string = JSON.stringify(this.dataService.ELEMENT_DATA)
+  save(dat:any){
+    let data:string = JSON.stringify(dat)
     let fileName:string = "NAMEFROMPOPUP" + '.json'
     const file = new Blob([data], { type: "text/plain" })
     const link = document.createElement("a");

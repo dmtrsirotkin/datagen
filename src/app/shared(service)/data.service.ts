@@ -51,7 +51,7 @@ export interface PRandGenString extends PropertyGeneration{
 
 @Injectable({providedIn: 'root'})
   export class DataService{
-
+  public data:any = {name:"our generated data"}
   public ELEMENT_DATA: any[] = []
 
   UpData(element:PropertyGeneration){
