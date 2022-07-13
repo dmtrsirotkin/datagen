@@ -6,10 +6,10 @@
     </app-view-tab>
   </div>
   <div class="CenterContent">
-    <button class="button" (click) = "SaveLoadService.save(DataService.data)">
+    <button class="button" (click) = "SaveLoadService.save(DataService.DataForExport)">
       Save
     </button>
-    <button class="button">
+    <button class="button" routerLink="/dataPreparation">
       Back to settings
     </button>
   </div>
