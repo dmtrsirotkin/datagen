@@ -147,6 +147,17 @@ export class PopUpEditComponent implements OnInit {
         }
         this.dataService.ELEMENT_DATA[elem8.id-1] = elem8;
         break
+      case 'RepeatConst':
+        let elem9 : PropertyGeneration = {
+          name: this.Submit.value.name,
+          type:this.Submit.value.type,
+          pattern:this.Submit.value.pattern,
+          genType:this.Submit.value.genType,
+          speed:this.Submit.value.speed,
+          id: this.data.id,
+        }
+        this.dataService.ELEMENT_DATA[elem9.id-1] = elem9;
+        break
     }
   }
 }

@@ -6,8 +6,11 @@
     </app-view-tab>
   </div>
   <div class="CenterContent">
-    <button class="button" (click) = "SaveLoadService.save(DataService.DataForExport)">
-      Save
+    <button class="button" (click) = "SaveLoadService.saveCsv(DataService.DataForExport)">
+      Save CSV
+    </button>
+    <button class="button" (click) = "SaveLoadService.saveJson(DataService.DataForExport)">
+      Save JSON
     </button>
     <button class="button" routerLink="/dataPreparation">
       Back to settings

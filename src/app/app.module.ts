@@ -11,7 +11,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatButtonModule} from "@angular/material/button";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {TabComponent} from "./tab/tab.component";
 import {MatTableModule} from "@angular/material/table";
 import { PopUpAddComponent } from './pop-up-add/pop-up-add.component';
@@ -41,7 +41,8 @@ import {ViewPageComponent} from "./view-page/view-page.component";
     MatButtonModule,
     ReactiveFormsModule,
     MatTableModule,
-    NgxFileHelpersModule
+    NgxFileHelpersModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -52,8 +52,7 @@ export interface PRandGenString extends PropertyGeneration{
 @Injectable({providedIn: 'root'})
   export class DataService{
   public ELEMENT_DATA: any[] = []
-
-  public DataForExport:any = {ke4y1:[2,5,4,8,70], key2:['s','s','a','as','saads','asdasdasd']}
+  public DataForExport: any[] = []
 
   UpData(element:PropertyGeneration){
     let elem :PropertyGeneration

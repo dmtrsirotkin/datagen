@@ -138,6 +138,17 @@ export class PopUpAddComponent implements OnInit {
         }
         this.dataService.AddData(elem8)
         break
+      case 'RepeatConst':
+        let elem9 : PropertyGeneration = {
+          name: this.Submit.value.name,
+          type:this.Submit.value.type,
+          pattern:this.Submit.value.pattern,
+          genType:this.Submit.value.genType,
+          speed:this.Submit.value.speed,
+          id: this.dataService.ELEMENT_DATA.length+1,
+        }
+        this.dataService.AddData(elem9)
+        break
     }
   }
 

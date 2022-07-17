@@ -6,14 +6,15 @@ import {DataService} from "../shared(service)/data.service";
   styleUrls: ['./view-tab.component.scss']
 })
 export class ViewTabComponent implements OnInit {
-
-  displayedColumns = Object.keys(this.DataService.DataForExport)
+  displayedColumns:string[] = []
   values:any = Object.values(this.DataService.DataForExport)
   len = Array(this.values[0].length).keys()
   len1 = Array(this.displayedColumns.length).keys()
   constructor(public DataService:DataService) { }
   ngOnInit(): void {
-    console.log(this.values)
+    for (let item of this.DataService.ELEMENT_DATA){
+      this.displayedColumns.push(item.name)
+    }
   }
 
 }

@@ -7,20 +7,19 @@
     </app-tab>
   </div>
   <div class="CenterContent">
-    <button class="button" (click) = "SaveLoadService.save(DataService.ELEMENT_DATA)">
-      Save
-    </button>
-    <button type="button" mat-button #filePicker="ngxFilePicker" ngxFilePicker [readMode]="readMode" [multiple]="false"
+    <form [formGroup]="Submit">
+      <button class="button" (click) = "SaveLoadService.save(DataService.ELEMENT_DATA)">
+        Save
+      </button>
+      <button type="button" mat-button #filePicker="ngxFilePicker" ngxFilePicker [readMode]="readMode" [multiple]="false"
             (filePick)="SaveLoadService.load($event)">
-      Load
-    </button>
-    <button class="button" routerLink="/viewPage">
-      To view page
-    </button>
-    <input type="number" size="40">
-    <button class="button">
-      Start generation
-    </button>
+        Load
+      </button>
+      <input formControlName="num_gen" type="number" size="40" value="num_gen">
+      <button class="button" (click) = saveNum()  routerLink="/viewPage" *ngIf="DataService.ELEMENT_DATA.length != 0">
+        Start generation
+      </button>
+    </form>
   </div>
 </div>
 
