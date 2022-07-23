@@ -13,3 +13,21 @@
 .button{
   margin-left: 8px
 }
+.CenterContent{
+  padding-top: 5px;
+  display: flex;
+  justify-content: center;
+}
+h1{
+  text-align: center;
+}
+
+.numGen{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 80px;
+  padding: 0.42rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #bdbdbd;
+  border-radius: 0.25rem;
+}

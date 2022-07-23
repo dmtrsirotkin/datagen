@@ -6,6 +6,7 @@ import {PropertyGeneration} from  "../shared(service)/data.service"
 import {MatDialog} from "@angular/material/dialog";
 import {PopUpAddComponent} from "../pop-up-add/pop-up-add.component";
 import {PopUpEditComponent} from "../pop-up-edit/pop-up-edit.component";
+import {PopUpDeleteComponent} from "../pop-up-delete/pop-up-delete.component";
 
 
 @Component({
@@ -18,7 +19,7 @@ export class TabComponent implements OnInit {
   constructor(public dataService: DataService,private dialogAdd: MatDialog) { }
 
   displayedColumns: string[] = ['name', 'type', 'pattern', 'gentype',
-    'speed', 'slider', 'edit', 'delete'];
+    'speed', 'controlButtons'];
 
 
   @ViewChild(MatTable) table!: MatTable<PropertyGeneration>;
@@ -41,9 +42,9 @@ export class TabComponent implements OnInit {
     this.dialogAdd.open(PopUpAddComponent).afterClosed().subscribe(result => {this.table.renderRows()});
   }
 
-  DeleteData(element:PropertyGeneration){
-    this.dataService.DeleteData(element)
-    this.table.renderRows()
+  DeleteData(element:any){
+    this.dialogAdd.open(PopUpDeleteComponent,{data:element}).afterClosed().subscribe(result => {this.table.renderRows()});
+
   }
 
   ngOnInit(): void {

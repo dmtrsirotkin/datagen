@@ -1,7 +1,7 @@
 <h1 align="center">Data generator</h1>
 
 ***
-![logo](https://www.kiit.ru/upload/resize_cache/iblock/4f3/735_100_1/4f3ebc249234f94eea280bf54e47eed1.jpg)
+
 
 ---
 ## About app

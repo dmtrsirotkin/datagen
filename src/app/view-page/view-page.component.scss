@@ -2,6 +2,7 @@
   padding-top: 4rem;
   width: 1200px;
   margin: 0 auto;
+
 }
 .logo{
   height: 50px;
@@ -12,4 +13,19 @@
 }
 .button{
   margin-left: 8px
+}
+
+.app-view{
+  width: 1200px;
+  display: flex;
+  justify-content: center;
+}
+
+h1{
+  text-align: center
+}
+
+.CenterContent{
+  display: flex;
+  justify-content: center;
 }

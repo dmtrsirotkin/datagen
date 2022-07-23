@@ -25,39 +25,29 @@
     <td mat-cell *matCellDef="let element">{{element.speed}}</td>
   </ng-container>
 
-  <ng-container matColumnDef="slider">
+  <ng-container matColumnDef="controlButtons">
     <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let element">
+    <td mat-cell *matCellDef="let element" class = "controlButtons">
       <button mat-raised-button (click) = "UpData(element)">
         UP
       </button>
       <button mat-raised-button (click) = "DownData(element)">
         Down
       </button>
-    </td>
-  </ng-container>
-
-  <ng-container matColumnDef="edit">
-    <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let element">
       <button mat-raised-button (click) = "EditData(element)">
         Edit
       </button>
-    </td>
-  </ng-container>
-
-  <ng-container matColumnDef="delete">
-    <th mat-header-cell *matHeaderCellDef></th>
-    <td mat-cell *matCellDef="let element">
       <button mat-raised-button (click) = "DeleteData(element)">
         Delete
       </button>
     </td>
   </ng-container>
 
+
+
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-<button class="button-add" (click) = "AddData()">
+<button class="button-add" mat-raised-button (click) = "AddData()">
   +
 </button>

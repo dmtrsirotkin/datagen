@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Testing data generator</h1>
+  <h1>Test data generator</h1>
   <div>
     <app-tab>
 
@@ -14,7 +14,7 @@
             (filePick)="SaveLoadService.load($event)">
         Load
       </button>
-      <input formControlName="num_gen" type="number" size="40" value="num_gen">
+      <input formControlName="num_gen" mat-raised type="number" size="80" value="num_gen" class = "numGen">
       <button class="button"  mat-raised-button (click) = saveNum()  routerLink="/viewPage" *ngIf="DataService.ELEMENT_DATA.length != 0">
         Start generation
       </button>

@@ -19,6 +19,7 @@ import { PopUpEditComponent } from './pop-up-edit/pop-up-edit.component';
 import { DataGenerationComponent } from './data-generation/data-generation.component';
 import {ViewTabComponent} from "./view-tab/view-tab.component";
 import {ViewPageComponent} from "./view-page/view-page.component";
+import { PopUpDeleteComponent } from './pop-up-delete/pop-up-delete.component';
 @NgModule({
     declarations: [
         AppComponent,
@@ -27,7 +28,8 @@ import {ViewPageComponent} from "./view-page/view-page.component";
         PopUpEditComponent,
         DataGenerationComponent,
         ViewTabComponent,
-        ViewPageComponent
+        ViewPageComponent,
+        PopUpDeleteComponent
     ],
   imports: [
     BrowserModule,
