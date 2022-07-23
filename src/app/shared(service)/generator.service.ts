@@ -62,10 +62,13 @@ export class GeneratorService {
 
   IterGenNum(obj: IterGenNum, num_gen:number){
     let initialValue = obj.initialValue*1
-    let num_list = [initialValue]
+    let num_list = []
+    for (let j = 0; j < obj.speed; j++) {
+      num_list.push(initialValue)
+    }
     let min_num = (obj.range ==null) ? 0:obj.range[0]*1;
     let max_num = (obj.range ==null) ? 0:obj.range[1]*1;
-    for(let i = 1; i < num_gen;i++){
+    for(let i = obj.speed; i < num_gen;i++){
       if(i % obj.speed*1 == 0) {
         if (initialValue*1 + obj.step*1 > max_num*1) {
           initialValue = min_num;
@@ -85,7 +88,7 @@ export class GeneratorService {
     let max_num = (obj.range ==null) ? 0:obj.range[0]*1;
     let min_num = (obj.range ==null) ? 0:obj.range[1]*1;
     let num=0
-    for(let i = 1; i <= num_gen; i++){
+    for(let i = 0; i < num_gen; i++){
       if (i %  obj.speed*1 == 0) {
         if(obj.type == "double"){
           num = Math.random() * (max_num - min_num) + min_num
@@ -103,7 +106,7 @@ export class GeneratorService {
     let num_list = [];
     let num = 0
     let randomNormal = require('random-normal');
-    for(let i = 1; i < num_gen; i++){
+    for(let i = 0; i < num_gen; i++){
       if (i %  obj.speed*1 == 0){
         num = randomNormal({mean: obj.mu*1, dev: obj.sig*1})
       }
@@ -115,8 +118,10 @@ export class GeneratorService {
   IterGenBool(obj : IterGenBool, num_gen:number) {
     let bool_list = []
     let initialValue = obj.initialValue;
-    bool_list.push(initialValue)
-    for(let i = 0; i < num_gen; i++){
+    for (let j = 0; j < obj.speed; j++) {
+      bool_list.push(initialValue)
+    }
+    for(let i = obj.speed; i < num_gen; i++){
       if (i %  obj.speed == 0) {
         initialValue = !initialValue
       }
@@ -138,10 +143,13 @@ export class GeneratorService {
   }
 
   IterGenString(obj : IterGenString, num_gen:number) {
-    let string_list = [obj.initialValue]
+    let string_list = []
     let initialValue = obj.initialValue
+    for (let j = 0; j < obj.speed; j++) {
+      string_list.push(initialValue)
+    }
     let index = obj.range.indexOf(initialValue)
-    for(let i = 1; i < num_gen; i++){
+    for(let i = obj.speed; i < num_gen; i++){
       if(i % obj.speed == 0){
         if(index + obj.step*1 >  obj.range.length-1){
           index = 0
@@ -180,7 +188,6 @@ export class GeneratorService {
     for(let i = 0; i < num_gen; i++){
       if(i % obj.speed == 0){
         let randomNumber = Math.random() * (probabilitySum)
-        console.log('randomnumber = ' + randomNumber)
         let sumProb = 0
         for (let j = 0;j<obj.probability.length;j++){
           if(randomNumber > sumProb && randomNumber < sumProb+obj.probability[j]*1){
@@ -206,7 +213,7 @@ export class GeneratorService {
   }
 
   GenResult(pattern:string, data:any[], type:string){
-    let res:any[] = [], str:any, patterns:string[], num:number, before:number, after:number, numbers:string[],
+    let res:any[] = [], str:any, str1:any, patterns:string[], num:number, before:number, after:number, numbers:string[],
       datt:string, numbers1:string[]
     if (pattern.match('{{')||pattern.match('}}')) {
       pattern = pattern.replace(/{{/g, '!@!@{{')
@@ -215,66 +222,66 @@ export class GeneratorService {
       for (let dat of data) {
         str = ''
         for (let elems of patterns) {
-          if (elems.match(/{{.+}}/)) {
-            console.log('a')
-            if (type=='string') {
+          if (elems != '') {
+            if (elems.match(/{{.+}}/)) {
               elems = elems.replace('{{', '')
               elems = elems.replace('}}', '')
               num = parseFloat(elems)
               numbers1 = elems.split('.')
-              if (num == NaN){
+              if (num == NaN) {
                 num = 0
               }
-              if (num-Math.round(num)==0){
+              if (num - Math.round(num) == 0) {
                 before = num
                 after = 0
-              }
-              else{
+              } else {
                 before = Math.floor(num)
                 after = parseInt(numbers1[1])
               }
-              console.log(before, after)
               numbers = dat.toString().split('.')
-              if (numbers.length==1){
-                numbers[1]='0'
+              if (numbers.length == 1) {
+                numbers[1] = '0'
               }
               datt = ''
-              for (let i = 0; i < numbers.length; i++){
-                if (i===0){
-                  if (numbers[i].length<=before && before!=0){
-                    datt = datt.concat(numbers[i].padStart(before,'0'))
-                  }
-                  else if (before == 0) {
+              for (let i = 0; i < numbers.length; i++) {
+                if (i === 0) {
+                  if (numbers[i].length <= before && before != 0) {
+                    datt = datt.concat(numbers[i].padStart(before, '0'))
+                  } else if (before == 0) {
                     datt = datt.concat(numbers[i])
+                  } else {
+                    datt = datt.concat(numbers[i].slice(numbers[i].length - before))
                   }
-                  else{
-                    datt = datt.concat(numbers[i].slice(numbers[i].length-before))
-                  }
-                }
-                else{
+                } else {
                   datt = datt.concat('.')
-                  if (numbers[i].length<=after && after!==0){
-                    datt = datt.concat(numbers[i].padEnd(after,'0'))
-                  }
-                  else if (after == 0) {
+                  if (numbers[i].length <= after && after !== 0) {
+                    datt = datt.concat(numbers[i].padEnd(after, '0'))
+                  } else if (after == 0) {
                     datt = datt.concat(numbers[i])
-                  }
-                  else{
+                  } else {
                     datt = datt.concat(numbers[i].slice(0, after))
                   }
                 }
               }
-              str = str.concat(datt)
+              if (type == 'string') {
+                str = str.concat(datt)
+              } else if (type == 'number' || type == 'double') {
+                str = parseFloat(datt)
+              }
             }
-            else{
-              str = str.concat(dat.toString())
+            else if (elems.match(/{{}}/)) {
+              if (type == 'string') {
+                str1 = dat.toString()
+                str = str.concat(str1)
+              } else {
+                str = dat
+              }
+
             }
-          }
-          else if  (elems.match(/{{}}/)) {
-            str = str.concat(dat.toString())
-          }
-          else {
-            str = str.concat(elems)
+            else {
+              console.log(str)
+              str = str.concat(elems)
+            }
           }
         }
         res.push(str)
@@ -286,8 +293,6 @@ export class GeneratorService {
 
     return res
   }
-
-
 }
 
 

@@ -116,7 +116,7 @@ export class PopUpEditComponent implements OnInit {
           genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
           id: this.data.id,
-          range: this.Submit.value.range.toString().split('|'),
+          range: this.Submit.value.range.toString().split(','),
           step: this.Submit.value.step,
           initialValue: this.Submit.value.initialValue
         }
@@ -130,7 +130,7 @@ export class PopUpEditComponent implements OnInit {
           genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
           id: this.data.id,
-          range: this.Submit.value.range.toString().split('|')
+          range: this.Submit.value.range.toString().split(',')
         }
         this.dataService.ELEMENT_DATA[elem7.id-1] = elem7;
         break
@@ -142,8 +142,8 @@ export class PopUpEditComponent implements OnInit {
           genType:this.Submit.value.genType,
           speed:this.Submit.value.speed,
           id: this.data.id,
-          range: this.Submit.value.range.toString().split('|'),
-          probability: this.Submit.value.probability.toString().split('|'),
+          range: this.Submit.value.range.toString().split(','),
+          probability: this.Submit.value.probability.toString().split(','),
         }
         this.dataService.ELEMENT_DATA[elem8.id-1] = elem8;
         break

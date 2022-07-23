@@ -1,6 +1,5 @@
 <div class="container">
   <h1>Testing data generator</h1>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Logo_SSI_Sch%C3%A4fer.svg/1280px-Logo_SSI_Sch%C3%A4fer.svg.png" class="logo">
   <div>
     <app-tab>
 
@@ -8,7 +7,7 @@
   </div>
   <div class="CenterContent">
     <form [formGroup]="Submit">
-      <button class="button" (click) = "SaveLoadService.save(DataService.ELEMENT_DATA)">
+      <button class="button" (click) = "SaveLoadService.save(DataService.ELEMENT_DATA, 'settings')">
         Save
       </button>
       <button type="button" mat-button #filePicker="ngxFilePicker" ngxFilePicker [readMode]="readMode" [multiple]="false"
