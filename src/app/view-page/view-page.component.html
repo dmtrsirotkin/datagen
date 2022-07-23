@@ -1,13 +1,13 @@
 <div class="container">
   <h1>Testing data generator</h1>
   <div class="CenterContent">
-    <button class="button" (click) = "SaveLoadService.saveCsv(DataService.DataForExport)">
+    <button class="button" mat-raised-button (click) = "SaveLoadService.saveCsv(DataService.DataForExport)">
       Save CSV
     </button>
-    <button class="button" (click) = "SaveLoadService.saveJson(DataService.DataForExport)">
+    <button class="button" mat-raised-button (click) = "SaveLoadService.saveJson(DataService.DataForExport)">
       Save JSON
     </button>
-    <button class="button" routerLink="/dataPreparation">
+    <button class="button" mat-raised-button routerLink="/dataPreparation">
       Back to settings
     </button>
   </div>

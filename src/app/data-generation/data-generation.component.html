@@ -7,15 +7,15 @@
   </div>
   <div class="CenterContent">
     <form [formGroup]="Submit">
-      <button class="button" (click) = "SaveLoadService.save(DataService.ELEMENT_DATA, 'settings')">
+      <button class="button" mat-raised-button (click) = "SaveLoadService.save(DataService.ELEMENT_DATA, 'settings')">
         Save
       </button>
-      <button type="button" mat-button #filePicker="ngxFilePicker" ngxFilePicker [readMode]="readMode" [multiple]="false"
+      <button type="button" mat-raised-button #filePicker="ngxFilePicker" ngxFilePicker [readMode]="readMode" [multiple]="false"
             (filePick)="SaveLoadService.load($event)">
         Load
       </button>
       <input formControlName="num_gen" type="number" size="40" value="num_gen">
-      <button class="button" (click) = saveNum()  routerLink="/viewPage" *ngIf="DataService.ELEMENT_DATA.length != 0">
+      <button class="button"  mat-raised-button (click) = saveNum()  routerLink="/viewPage" *ngIf="DataService.ELEMENT_DATA.length != 0">
         Start generation
       </button>
     </form>

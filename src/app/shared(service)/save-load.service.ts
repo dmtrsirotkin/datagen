@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {DataService} from "./data.service";
+import { saveAs } from 'file-saver';
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +22,14 @@ export class SaveLoadService {
   }
 
   saveCsv(dat:any){
+    const replacer = (key: any, value: null) => value === null ? '' : value;
+    const header = Object.keys(dat[0]);
+    let csv = dat.map((row: { [x: string]: any; }) => header.map(fieldName => JSON.stringify(row[fieldName], replacer)).join(','));
+    csv.unshift(header.join(','));
+    let csvArray = csv.join('\r\n');
+
+    var blob = new Blob([csvArray], {type: 'text/csv' })
+    saveAs(blob, "GeneratedData.csv");
   }
 
   saveJson(dat:any) {
