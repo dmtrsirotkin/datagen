@@ -18,7 +18,7 @@ import {Parser} from "@angular/compiler";
   styleUrls: ['./pop-up-edit.component.scss']
 })
 export class PopUpEditComponent implements OnInit {
-
+  initial_pattern:string = '{{}}'
   Submit!: FormGroup;
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private builder: FormBuilder,private dataService: DataService) {
   }
@@ -157,6 +157,17 @@ export class PopUpEditComponent implements OnInit {
           id: this.data.id,
         }
         this.dataService.ELEMENT_DATA[elem9.id-1] = elem9;
+        break
+      case 'UUID':
+        let elem10 : PropertyGeneration = {
+          name: this.Submit.value.name,
+          type:this.Submit.value.type,
+          pattern:this.Submit.value.pattern,
+          genType:this.Submit.value.genType,
+          speed:this.Submit.value.speed,
+          id: this.dataService.ELEMENT_DATA.length+1,
+        }
+        this.dataService.ELEMENT_DATA[elem10.id-1] = elem10
         break
     }
   }

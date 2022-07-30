@@ -10,7 +10,7 @@ import {
 } from "./data.service";
 // @ts-ignore
 import { randomNormal } from 'random-normal'
-
+import { v4 as uuidv4 } from 'uuid';
 @Injectable({
   providedIn: 'root'
 })
@@ -34,22 +34,32 @@ export class GeneratorService {
             this.RandGenNum(this.dataService.ELEMENT_DATA[i],num_gen), this.dataService.ELEMENT_DATA[i].type));
           break
         case 'PRandGenNum':
-          this.dataService.DataForExport.push(this.PRandGenNum(this.dataService.ELEMENT_DATA[i],num_gen));
+          this.dataService.DataForExport.push(this.GenResult(this.dataService.ELEMENT_DATA[i].pattern,
+            this.PRandGenNum(this.dataService.ELEMENT_DATA[i],num_gen), this.dataService.ELEMENT_DATA[i].type));
           break
         case 'IterGenBool':
-          this.dataService.DataForExport.push(this.IterGenBool(this.dataService.ELEMENT_DATA[i],num_gen));
+          this.dataService.DataForExport.push(this.GenResult(this.dataService.ELEMENT_DATA[i].pattern,
+            this.IterGenBool(this.dataService.ELEMENT_DATA[i],num_gen), this.dataService.ELEMENT_DATA[i].type));
           break
         case 'PRandGenBool':
-          this.dataService.DataForExport.push(this.PRandGenBool(this.dataService.ELEMENT_DATA[i],num_gen));
+          this.dataService.DataForExport.push(this.GenResult(this.dataService.ELEMENT_DATA[i].pattern,
+            this.PRandGenBool(this.dataService.ELEMENT_DATA[i],num_gen), this.dataService.ELEMENT_DATA[i].type));
           break
         case 'IterGenString':
-          this.dataService.DataForExport.push(this.IterGenString(this.dataService.ELEMENT_DATA[i],num_gen));
+          this.dataService.DataForExport.push(this.GenResult(this.dataService.ELEMENT_DATA[i].pattern,
+            this.IterGenString(this.dataService.ELEMENT_DATA[i],num_gen), this.dataService.ELEMENT_DATA[i].type));
           break
         case 'RandGenString':
-          this.dataService.DataForExport.push(this.RandGenString(this.dataService.ELEMENT_DATA[i],num_gen));
+          this.dataService.DataForExport.push(this.GenResult(this.dataService.ELEMENT_DATA[i].pattern,
+            this.RandGenString(this.dataService.ELEMENT_DATA[i],num_gen), this.dataService.ELEMENT_DATA[i].type));
           break
         case 'PRandGenString':
-          this.dataService.DataForExport.push(this.PRandGenString(this.dataService.ELEMENT_DATA[i],num_gen));
+          this.dataService.DataForExport.push(this.GenResult(this.dataService.ELEMENT_DATA[i].pattern,
+            this.PRandGenString(this.dataService.ELEMENT_DATA[i],num_gen), this.dataService.ELEMENT_DATA[i].type));
+          break
+        case 'UUID':
+          this.dataService.DataForExport.push(this.GenResult(this.dataService.ELEMENT_DATA[i].pattern,
+            this.GenUUID(this.dataService.ELEMENT_DATA[i],num_gen), this.dataService.ELEMENT_DATA[i].type));
           break
         case 'RepeatConst':
           this.dataService.DataForExport.push(this.GenResult(this.dataService.ELEMENT_DATA[i].pattern,
@@ -212,6 +222,18 @@ export class GeneratorService {
     return const_list
   }
 
+  GenUUID(obj: PropertyGeneration, num_gen: number){
+    let uuid_list:any[] = []
+    let uuid: string = ''
+    for(let i = 0; i < num_gen; i++){
+      if (i % obj.speed == 0) {
+        uuid = uuidv4()
+      }
+      uuid_list.push(uuid)
+    }
+    return uuid_list
+  }
+
   GenResult(pattern:string, data:any[], type:string){
     let res:any[] = [], str:any, str1:any, patterns:string[], num:number, before:number, after:number, numbers:string[],
       datt:string, numbers1:string[]
@@ -293,6 +315,8 @@ export class GeneratorService {
 
     return res
   }
+
 }
+
 
 

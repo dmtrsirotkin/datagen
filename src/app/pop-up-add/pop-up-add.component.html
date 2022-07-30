@@ -3,7 +3,7 @@
     <div>
       <mat-form-field appearance="fill">
         <mat-label>Name</mat-label>
-        <input formControlName="name"matInput>
+        <input formControlName="name" matInput>
       </mat-form-field>
     </div>
     <div>
@@ -19,7 +19,7 @@
     </div>
     <div>
       <mat-form-field appearance="fill">
-        <mat-label>Pattern</mat-label>
+        <mat-label>Pattern use {{initial_pattern}} </mat-label>
         <input formControlName="pattern" matInput>
       </mat-form-field>
     </div>
@@ -35,6 +35,7 @@
           <mat-option value="IterGenString">IterGenString</mat-option>
           <mat-option value="RandGenString">RandGenString</mat-option>
           <mat-option value="PRandGenString">PRandGenString</mat-option>
+          <mat-option value="UUID">UUID</mat-option>
           <mat-option value="RepeatConst">RepeatConst</mat-option>
         </mat-select>
       </mat-form-field>
@@ -91,13 +92,13 @@
     <div *ngIf="this.Submit.value.genType == 'PRandGenNum'">
       <div>
         <mat-form-field appearance="fill">
-          <mat-label>MU</mat-label>
+          <mat-label>Mathematical expectation</mat-label>
           <input formControlName="mu" matInput>
         </mat-form-field>
       </div>
       <div>
         <mat-form-field appearance="fill">
-          <mat-label>Sig</mat-label>
+          <mat-label>Standard deviation</mat-label>
           <input formControlName="sig" matInput>
         </mat-form-field>
       </div>
@@ -115,7 +116,7 @@
     <div *ngIf="this.Submit.value.genType == 'PRandGenBool'">
       <div>
         <mat-form-field appearance="fill">
-          <mat-label>Probability</mat-label>
+          <mat-label>Probability |use ',' as delimiter|</mat-label>
           <input formControlName="probability" matInput>
         </mat-form-field>
       </div>
@@ -124,7 +125,7 @@
     <div *ngIf="this.Submit.value.genType == 'IterGenString'">
       <div>
         <mat-form-field appearance="fill">
-          <mat-label>Range</mat-label>
+          <mat-label>Range |use ',' as delimiter|</mat-label>
           <input formControlName="range" matInput>
         </mat-form-field>
       </div>
@@ -145,7 +146,7 @@
     <div *ngIf="this.Submit.value.genType == 'RandGenString'">
       <div>
         <mat-form-field appearance="fill">
-          <mat-label>Range</mat-label>
+          <mat-label>Range |use ',' as delimiter|</mat-label>
           <input formControlName="range" matInput>
         </mat-form-field>
       </div>
@@ -154,13 +155,13 @@
     <div *ngIf="this.Submit.value.genType == 'PRandGenString'">
       <div>
         <mat-form-field appearance="fill">
-          <mat-label>Range</mat-label>
+          <mat-label>Range |use ',' as delimiter|</mat-label>
           <input formControlName="range" matInput>
         </mat-form-field>
       </div>
       <div>
         <mat-form-field appearance="fill">
-          <mat-label>Probability</mat-label>
+          <mat-label>Probability |use ',' as delimiter|</mat-label>
           <input formControlName="probability" matInput>
         </mat-form-field>
       </div>

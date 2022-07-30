@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {DataService} from "./data.service";
-import { saveAs } from 'file-saver';
 @Injectable({
   providedIn: 'root'
 })
@@ -21,15 +20,31 @@ export class SaveLoadService {
     link.remove();
   }
 
-  saveCsv(dat:any){
+  saveCsv(data:any){
     const replacer = (key: any, value: null) => value === null ? '' : value;
-    const header = Object.keys(dat[0]);
-    let csv = dat.map((row: { [x: string]: any; }) => header.map(fieldName => JSON.stringify(row[fieldName], replacer)).join(','));
-    csv.unshift(header.join(','));
-    let csvArray = csv.join('\r\n');
-
-    var blob = new Blob([csvArray], {type: 'text/csv' })
-    saveAs(blob, "GeneratedData.csv");
+    let header:string[] = [];
+    let dat:any[] = []
+    let dat1:any[] = []
+    for (const key of this.dataService.ELEMENT_DATA) {
+      header.push(key.name)
+    }
+    dat.push(header)
+    for (let j=0; j<data[0].length; j++){
+      for (let i=0; i<data.length; i++){
+        dat1.push(data[i][j])
+      }
+      dat.push(dat1)
+      dat1=[]
+    }
+    let csv = dat.map(function(d){
+      return d.join();
+    }).join('\n');
+    let blob = new Blob([csv], {type: 'text/csv' })
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "generatedData.csv";
+    link.click();
+    link.remove();
   }
 
   saveJson(dat:any) {

@@ -10,7 +10,11 @@ import {PropertyGeneration, IterGenNum, IterGenString, PRandGenString, RandGenSt
   styleUrls: ['./pop-up-add.component.scss']
 })
 export class PopUpAddComponent implements OnInit {
-
+  initial_pattern:string = '{{}}'
+  initial_speed:number = 1
+  initial_step:string = '1'
+  initial_probability:string = '50,50'
+  initial_string:string = 'string1,string2'
   public Submit!: FormGroup;
   constructor(private builder: FormBuilder,private dataService: DataService) {
   }
@@ -19,17 +23,17 @@ export class PopUpAddComponent implements OnInit {
     this.Submit = this.builder.group({
       name: ['', Validators.required],
       type: ['', Validators.required],
-      pattern: ['', Validators.required],
+      pattern: ['{{}}', Validators.required],
       genType: ['', Validators.required],
-      speed: ['', Validators.required],
-      range: ['',Validators.required],
+      speed: ['1', Validators.required],
+      range: ['something,something',Validators.required],
       rangeFrom: ['', Validators.required],
       rangeTo: ['', Validators.required],
-      step: ['', Validators.required],
+      step: ['1', Validators.required],
       initialValue: ['', Validators.required],
       mu: ['', Validators.required],
       sig: ['', Validators.required],
-      probability: ['', Validators.required],
+      probability: ['50,50', Validators.required],
     })
   }
 
@@ -148,6 +152,17 @@ export class PopUpAddComponent implements OnInit {
           id: this.dataService.ELEMENT_DATA.length+1,
         }
         this.dataService.AddData(elem9)
+        break
+      case 'UUID':
+        let elem10 : PropertyGeneration = {
+          name: this.Submit.value.name,
+          type:this.Submit.value.type,
+          pattern:this.Submit.value.pattern,
+          genType:this.Submit.value.genType,
+          speed:this.Submit.value.speed,
+          id: this.dataService.ELEMENT_DATA.length+1,
+        }
+        this.dataService.AddData(elem10)
         break
     }
   }
