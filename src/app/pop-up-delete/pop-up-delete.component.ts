@@ -16,7 +16,7 @@ export class PopUpDeleteComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  text = "Точно удалить " + this.data.name + "?";
+  text = "Delete" + this.data.name + "?";
 
   onConfirm(){
     this.dataService.DeleteData(this.data);
