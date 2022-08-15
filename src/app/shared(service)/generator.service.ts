@@ -98,9 +98,9 @@ export class GeneratorService {
     let max_num = (obj.range ==null) ? 0:obj.range[0]*1;
     let min_num = (obj.range ==null) ? 0:obj.range[1]*1;
     let num=0
-    for(let i = 0; i < num_gen; i++){
+    for (let i = 0; i < num_gen; i++){
       if (i %  obj.speed*1 == 0) {
-        if(obj.type == "double"){
+        if ((obj.type == "double") || (obj.type == "string")){
           num = Math.random() * (max_num - min_num) + min_num
         }
         else if (obj.type == "number"){
